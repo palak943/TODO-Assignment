@@ -27,7 +27,8 @@ function addFunction(){
     const dueDate = document.getElementById('dueDate').value;
     const category = document.getElementById('category').value;
     const subtaskInput = document.getElementById('subtaskInput').value.trim();
-    const tagsInput = document.getElementById('tagsInput').value.trim();
+    const tagsInput = document.getElementById('tagsInput').value;
+    const res = tagsInput.split(',').map((tag) => tag.trim()).filter((tag) => tag.length !== 0);
 
     /*var task={};
     task['id']=id;
@@ -39,7 +40,7 @@ function addFunction(){
       priority: priority,
       dueDate: dueDate,
       category: category,
-      tags: tagsInput.split(',').map(tag => tag.trim()),
+      tags: res,
   };
   if (subtaskInput) {
     if (!task.subtasks) {
@@ -130,16 +131,19 @@ function newElement(item) {
     sub.appendChild(tsub);
     li.appendChild(sub);
     sub.setAttribute("onclick",addSubtask(sub));*/
-     /*var i;
-     var n=item.tags;
+    if(item.tags!='')
+    {
+     var i;
+     var n=item.tags.length;
     for(i=0;i<n;i++)
-    {*/
-   /* var att = document.createElement("button");
-    var tt = document.createTextNode("hiii");
-    att.className=tagdata;
+    {
+   var att = document.createElement("button");
+    var tt = document.createTextNode(item.tags[i]);
+    att.className=item.tags[i];
     att.appendChild(tt);
     li.appendChild(att);
-    //}*/
+    }
+  }
 
     var btn1 = document.createElement("button");
     var txt1 = document.createTextNode("edit");
