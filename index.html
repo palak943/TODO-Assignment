@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=".\style.css">
+</head>
+<body>
+    <div class="page">
+      
+      <h2 class="t2">To Do List</h2>
+      <div class="search">
+        <input type="text" id="searchTerm" placeholder="Search...">
+        <button class="btn11" onclick="searchTasks()">Search</button>
+      </div>
+      <div class="viewbacklogs">
+        <button onclick="Backlogs()">View Backlogs</button>
+      </div>
+
+    <p class="add-item">
+      <div class="inputsss">
+        <label class="t1" for="new-task">Title:</label>
+        <input id="new-task" type="text">
+        
+          <label class="t1"  for="priority">Priority:</label>
+          <select id="priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+          </select>
+          <input type="date" id="dueDate">
+            <select id="category">
+              <option value="">Select a Category</option>
+                <!-- Add category options dynamically -->
+            </select>
+          <input type="text" id="subtaskInput" placeholder="Enter subtask...">
+          <input type="text" id="tagsInput" placeholder="Enter tags (comma separated)...">
+          <button class="addid" id="add">Add</button>
+
+      </div>
+        
+  </p>
+    <hr>
+    <p class="todo">
+        <ul id="tasks" ondragover="dragOver(event)" ondrop="drop(event)"></ul>
+    </p>
+    <div class="sort">
+      <label class="t1" for="sortBy">Sort by:</label>
+      <select id="sortBy" onchange="sortTasks(this.value)">
+          <option value="default">Default</option>
+          <option value="dueDate">Due Date</option>
+          <option value="priority">Priority</option>
+      </select>
+    </div>
+    <div class="filters">
+      <label class="t1" for="priorityy">Priority:</label>
+      <select id="priorityy">
+          <option value="">All</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+      </select>
+      <label class="t1"  for="dueDateFilter">Due Date:</label>
+      <input type="date" id="dueDateFilter">
+      <label class="t1" for="categoryFilter">Category:</label>
+      <select id="categoryFilter">
+          <option value="">All</option>
+          <!-- Add category options dynamically -->
+      </select>
+      <button class="btn11" onclick="filterTasks()">Filter</button>
+    </div>
+    </div>
+</body>
+<script src=".\logic.js"></script>
+</html>
